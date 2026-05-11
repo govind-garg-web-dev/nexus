@@ -1,0 +1,2 @@
+# Root nixpacks — Railway uses service-level configs instead.
+# Each service (apps/api, apps/web) has its own nixpacks.toml.
