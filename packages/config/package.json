@@ -1,0 +1,21 @@
+{
+  "name": "@nexus/config",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    "./typescript/base": "./typescript/base.json",
+    "./typescript/nextjs": "./typescript/nextjs.json",
+    "./typescript/api": "./typescript/api.json",
+    "./eslint/base": "./eslint/base.js",
+    "./eslint/nextjs": "./eslint/nextjs.js",
+    "./eslint/api": "./eslint/api.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "eslint": "^9.25.1",
+    "typescript-eslint": "^8.30.1",
+    "eslint-config-next": "^15.3.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0"
+  }
+}

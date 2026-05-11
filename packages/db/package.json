@@ -1,0 +1,31 @@
+{
+  "name": "@nexus/db",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema/identity": "./src/schema/identity.ts",
+    "./schema/public": "./src/schema/public.ts",
+    "./schema/behavioral": "./src/schema/behavioral.ts",
+    "./client": "./src/client.ts",
+    "./migrate": "./src/migrate.ts"
+  },
+  "scripts": {
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.43.1",
+    "@neondatabase/serverless": "^0.10.4",
+    "drizzle-zod": "^0.7.0",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@nexus/config": "workspace:*",
+    "drizzle-kit": "^0.31.1",
+    "typescript": "^5.8.3",
+    "dotenv": "^16.5.0"
+  }
+}

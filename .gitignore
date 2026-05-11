@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+.next/
+out/
+build/
+
+# Turbo
+.turbo/
+
+# Environment variables — NEVER commit these
+.env
+.env.local
+.env.*.local
+
+# Database
+migrations/*.sql
+*.db
+*.sqlite
+
+# Logs
+*.log
+logs/
+pino-*.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+*.tsbuildinfo
+.vercel

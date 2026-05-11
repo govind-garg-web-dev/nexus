@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: 240 10% 3.9%;
+  --color-foreground: 0 0% 98%;
+  --color-card: 240 10% 3.9%;
+  --color-card-foreground: 0 0% 98%;
+  --color-popover: 240 10% 3.9%;
+  --color-popover-foreground: 0 0% 98%;
+  --color-primary: 263 70% 58%;
+  --color-primary-foreground: 0 0% 98%;
+  --color-secondary: 240 3.7% 15.9%;
+  --color-secondary-foreground: 0 0% 98%;
+  --color-muted: 240 3.7% 15.9%;
+  --color-muted-foreground: 240 5% 64.9%;
+  --color-accent: 240 3.7% 15.9%;
+  --color-accent-foreground: 0 0% 98%;
+  --color-destructive: 0 62.8% 30.6%;
+  --color-destructive-foreground: 0 0% 98%;
+  --color-border: 240 3.7% 15.9%;
+  --color-input: 240 3.7% 15.9%;
+  --color-ring: 263 70% 58%;
+  --radius: 0.5rem;
+}
+
+* {
+  border-color: hsl(var(--color-border));
+}
+
+body {
+  background-color: hsl(var(--color-background));
+  color: hsl(var(--color-foreground));
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(240 3.7% 25%);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(240 3.7% 35%);
+}
