@@ -1,13 +1,8 @@
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
-import * as identitySchema from "./schema/identity.js";
-import * as publicSchema from "./schema/public.js";
-import * as behavioralSchema from "./schema/behavioral.js";
-
-/**
- * Lazy DB client — deferred so dotenv loads before DATABASE_URL is read.
- * Uses postgres.js which works with Supabase + Vercel serverless.
- */
+import * as identitySchema from "./schema/identity";
+import * as publicSchema from "./schema/public";
+import * as behavioralSchema from "./schema/behavioral";
 
 function getUrl(): string {
   const url = process.env["DATABASE_URL"];
@@ -15,20 +10,12 @@ function getUrl(): string {
   return url;
 }
 
-// For serverless (Vercel), max 1 connection per function instance
-function makeClient(options?: { max?: number }) {
-  return postgres(getUrl(), {
-    max: options?.max ?? 1,
-    ssl: "require",
-    idle_timeout: 20,
-    connect_timeout: 10,
-  });
+function makeClient() {
+  return postgres(getUrl(), { max: 1, ssl: "require", idle_timeout: 20, connect_timeout: 10 });
 }
 
 function createFullDb() {
-  return drizzle(makeClient(), {
-    schema: { ...identitySchema, ...publicSchema, ...behavioralSchema },
-  });
+  return drizzle(makeClient(), { schema: { ...identitySchema, ...publicSchema, ...behavioralSchema } });
 }
 function createPublicDb() {
   return drizzle(makeClient(), { schema: { ...publicSchema } });
@@ -66,8 +53,4 @@ export const behavioralDb = new Proxy({} as BehavioralDb, {
   },
 });
 
-export type {
-  FullDb as Database,
-  PublicDb as PublicDatabase,
-  BehavioralDb as BehavioralDatabase,
-};
+export type { FullDb as Database, PublicDb as PublicDatabase, BehavioralDb as BehavioralDatabase };
