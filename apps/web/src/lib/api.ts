@@ -1,4 +1,7 @@
-const BASE = process.env["NEXT_PUBLIC_API_URL"] ?? "http://localhost:4000";
+/**
+ * API client — calls Next.js Route Handlers at /api/...
+ * Same origin as the frontend, so no CORS config needed.
+ */
 
 interface ApiResponse<T> { success: true; data: T }
 interface ApiError { success: false; error: { code: string; message: string } }
@@ -12,9 +15,8 @@ export class ApiRequestError extends Error {
 }
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
-  const res = await fetch(`${BASE}${path}`, {
+  const res = await fetch(path, {
     headers: { "Content-Type": "application/json" },
-    credentials: "include",
     ...options,
   });
   const json = (await res.json()) as ApiResult<T>;

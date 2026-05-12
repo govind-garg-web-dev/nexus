@@ -13,8 +13,9 @@ export default defineConfig({
   dialect: "postgresql",
   dbCredentials: {
     url: process.env["DATABASE_URL"],
+    ssl: "require",
   },
-  schemaFilter: ["identity", "public", "behavioral"],
+  schemaFilter: ["identity", "public_nexus", "behavioral"],
   verbose: true,
   strict: true,
 });

@@ -17,15 +17,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "drizzle-orm": "^0.43.1",
-    "@neondatabase/serverless": "^0.10.4",
+    "drizzle-orm": "0.43.1",
     "drizzle-zod": "^0.7.0",
+    "postgres": "^3.4.9",
     "zod": "^3.24.3"
   },
   "devDependencies": {
     "@nexus/config": "workspace:*",
+    "dotenv": "^16.5.0",
     "drizzle-kit": "^0.31.1",
-    "typescript": "^5.8.3",
-    "dotenv": "^16.5.0"
+    "typescript": "^5.8.3"
   }
 }
