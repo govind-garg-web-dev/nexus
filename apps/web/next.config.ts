@@ -2,13 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-
-  // Standalone output for Railway/Docker deployment
   output: "standalone",
 
-  experimental: {
-    turbo: {},
-  },
+  // Turbopack (replaces deprecated experimental.turbo)
+  turbopack: {},
 
   images: {
     remotePatterns: [
